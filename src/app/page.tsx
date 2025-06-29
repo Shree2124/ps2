@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion"
 import { useDashboard } from "@/hooks/useDashboard"
-import { Header } from "@/components/layout/Header"
-import { Sidebar } from "@/components/layout/Sidebar"
+import { Header } from "@/components/layouts/Header"
+import { Sidebar } from "@/components/layouts/Sidebar"
 import { KPICards } from "@/components/dashboard/KPICards"
 import { SalesChart } from "@/components/dashboard/SalesChart"
 import { ProductChart } from "@/components/dashboard/ProductChart"
