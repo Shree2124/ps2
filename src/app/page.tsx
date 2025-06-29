@@ -26,7 +26,7 @@ export default function Dashboard() {
 
   return (
     <div className="bg-background min-h-screen">
-      <ResponsiveSidebar currentPath="/" />
+      <ResponsiveSidebar />
       <div className="md:pl-64 lg:pl-72">
         <ResponsiveHeader user={user} userLoading={userLoading} currentPath="/" />
         <main className="p-4 sm:p-6">
