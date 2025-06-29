@@ -5,12 +5,13 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { BarChart3, Home, ShoppingCart, Users, Settings, TrendingUp, Package, Calendar } from "lucide-react"
+import Link from "next/link"
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: Home, current: true },
-  { name: "Analytics", href: "#", icon: BarChart3, current: false },
-  { name: "Sales", href: "#", icon: TrendingUp, current: false },
-  { name: "Orders", href: "#", icon: ShoppingCart, current: false },
+  { name: "Dashboard", href: "/", icon: Home, current: true, link: "/" },
+  { name: "Analytics", href: "/analytics", icon: BarChart3, current: false, link: "/analytics" },
+  { name: "Sales", href: "/sales", icon: TrendingUp, current: false, link: "/sales" },
+  { name: "Orders", href: "/orders", icon: ShoppingCart, current: false, link: '/orders' },
   { name: "Customers", href: "#", icon: Users, current: false },
   { name: "Products", href: "#", icon: Package, current: false },
   { name: "Calendar", href: "#", icon: Calendar, current: false },
@@ -18,6 +19,8 @@ const navigation = [
 ]
 
 export const Sidebar = () => {
+
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -50,17 +53,19 @@ export const Sidebar = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Button
-                    variant={item.current ? "secondary" : "ghost"}
-                    className={cn(
-                      "w-full justify-start font-semibold text-sm transition-all duration-200",
-                      item.current &&
+                  <Link href={item.href}>
+                    <Button
+                      variant={item.current ? "secondary" : "ghost"}
+                      className={cn(
+                        "w-full justify-start font-semibold text-sm transition-all duration-200",
+                        item.current &&
                         "bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 text-primary shadow-sm",
-                    )}
-                  >
-                    <item.icon className="mr-3 w-5 h-5" />
-                    {item.name}
-                  </Button>
+                      )}
+                    >
+                      <item.icon className="mr-3 w-5 h-5" />
+                      {item.name}
+                    </Button>
+                  </Link>
                 </motion.div>
               ))}
             </nav>
